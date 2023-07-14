@@ -1,0 +1,41 @@
+{
+  "name": "termonna-api-service",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Api Service",
+  "author": "Termonna",
+  "scripts": {
+    "build": "webpack",
+    "lint": "eslint -c .eslintrc --ext .ts,.js,.vue src/",
+    "gitmessage-install": "git config --local commit.template .gitmessage",
+    "lint-fix": "eslint -c .eslintrc --ext .ts,.js,.vue src/ --fix",
+    "postinstall": "npm run gitmessage-install && husky install .husky"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^17.6.1",
+    "@types/webpack-env": "^1.18.1",
+    "@typescript-eslint/eslint-plugin": "^5.58.0",
+    "@typescript-eslint/parser": "^5.58.0",
+    "axios": "^1.3.5",
+    "copy-webpack-plugin": "^11.0.0",
+    "eslint": "^8.38.0",
+    "eslint-plugin-vue": "^9.10.0",
+    "husky": "^8.0.3",
+    "lint-staged": "^13.2.1",
+    "ts-loader": "^9.4.4",
+    "tsconfig-paths": "^4.2.0",
+    "typescript": "^5.0.4",
+    "webpack": "^5.88.1",
+    "webpack-cli": "^5.1.4"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{js,vue,ts}": [
+      "eslint -c .eslintrc src/"
+    ]
+  }
+}
